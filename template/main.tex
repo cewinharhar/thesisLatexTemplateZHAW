@@ -1,0 +1,247 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Vorlage Bericht AnCP-2
+%   
+%   Diese Vorlage beinhaltet die wichtigsten Packete und stellt ein einfaches
+%   Layout für die Abgabe der Berichte im AnCP-2 zur Verfügung.
+%   
+%   Autor:      Thomas Keller (keeh@zhaw.ch)
+%   Datum:      19.07.2019
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%  Eingebundene Packete
+
+\documentclass[a4paper,ngerman, twoside]{scrartcl}          %   Grunddefinition der Datei
+\setkomafont{subsubsection}{\large}
+\usepackage[utf8]{inputenc}                                 %   ermöglicht Umlaute direkt (ä,ö,ü,...)
+\usepackage[ngerman]{babel}                                 %   Sprachpacket für Vordefinierte Blöcke
+\usepackage{amssymb}                                        %   stellt eine Bibliothek von Sonderzeichen (ohne Mathe Umgebunghttps://www.overleaf.com/project/604d08ba921769b2534b87da zur verfügung
+\usepackage{amsmath}                                        %   Diverse mathematische Funktionen
+\usepackage[version=4]{mhchem}                              %   Chemische Formeln abbilden
+\usepackage[hidelinks,pdftex]{hyperref}                                       %   Verlinkungen innerhalb des PDF
+\usepackage{url}                                            %   Einstellung für Links
+\usepackage[
+			format=plain, 
+			margin=10pt, 
+			font=small,
+			skip=10pt]{caption}                             %   Einstellung für Beschriftungen
+\usepackage{pdfpages}                                       %   Einbinden externer PDF's
+\usepackage[toc,page, title]{appendix}                      %   Diverse Einstellungen für den Anhang
+\usepackage[
+    backend=biber,      %   Einbindung mittels biber Backend
+    style=chem-angew,   %   zitieren nach Chem. Angew. Journal
+    biblabel=brackets,  %   Eckige Klammern
+    maxnames=3,         %   Maximale Anzahl Autoren (vor et. al)
+    minnames=3          %   Minimale Anzahl Autoren
+    ]{biblatex}                                             %   Einbinden & Darstellen von Literatur
+\usepackage{lscape}                                         %   einfaches Seitenlayout (quer)
+\usepackage[onehalfspacing]{setspace}                       %   ändern von zeilenabständen
+\usepackage{float}                                          %   positionierung von Gleitobjekten
+\usepackage{fancybox}                                       %   verchiedene Container Formate
+\usepackage[
+	headsepline,
+	footsepline,
+	plainheadsepline,
+	plainfootsepline,
+	automark
+]{scrlayer-scrpage}
+
+\usepackage{longtable}
+\usepackage{csquotes}
+\raggedbottom
+
+\usepackage[a4paper, 
+			left=28mm, 
+			right=22mm, 
+			top=35mm, 
+			bottom=30mm, 
+			headheight=15mm, 
+			footskip=15mm]{geometry}
+\usepackage{tabularx}                                       %   erweiterte Tabelleneigenschaften
+\usepackage{microtype}                                      %   hübsches Schriftbild
+\usepackage{multirow}                                       %   Zeilen in Tabelle verbinden
+\usepackage{booktabs}
+
+\usepackage{subcaption}
+
+\usepackage{rotating}
+
+\usepackage{graphicx}
+
+\usepackage{seqsplit}
+\usepackage{ltablex}
+
+
+
+%%%%%%%%%%  Einstellungen für die Packete
+\urlstyle{rm}                                               %   setzt URL Schrift auf Std.
+\setcounter{tocdepth}{2}                                    %   Darstellungstiefe des Inhaltsverzeichnis
+
+% Anhang-Einstellungen
+%\addto\captionsngerman{\let\appendixtocname\appendixname%
+%\let\appendixpagename\appendixname}
+\renewcommand{\appendixpagename}{Anhang} 
+\renewcommand{\appendixtocname}{Anhang} 
+
+
+% Literatureinstellungen
+\addbibresource{referenzen.bib}
+\DefineBibliographyStrings{ngerman}{                        % Schreibt et. al anstelle von und weitere
+   andothers = {{et\,al\adddot}},            
+}
+
+% Groesseneinstellungen
+\setlength{\evensidemargin}{0.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\textwidth}{16cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{24cm}
+\setlength{\parindent}{0.0cm}
+\setlength{\headheight}{14pt} 
+
+% Tabelleneinstellungen
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% neue Kommandos (Macro)
+\newcommand{\bit}[1]{\emph{\textbf{#1}}}                    % bold italic \bit{asdf}
+\newcommand{\atz}{\quad\quad}                               % links rechts leerzeichen Breite M \atz{asdf}
+\newcommand{\bb}[1]{\textbf{#1}}                            % bold \bb{asdf}
+\newcommand{\uu}[1]{\underline{#1}}                         % underline \uu{asdf}
+\newcommand{\yo}[1]{\colorbox{Yellow}{#1}}
+
+\pagestyle{scrheadings}	                                    % aktiviert kopf & fusszeile
+\clearscrheadfoot		                                    % delets default header / footer
+\renewcommand*{\headfont}{\normalfont}	                    % disable italic font
+
+% Schriftbild
+\setkomafont{sectioning}{\rmfamily\bfseries}   
+% ändert Kapitelschrift in Serifenschrift
+
+\newcommand{\bigline}{\rule{\linewidth}{1.5pt}}
+\newcommand{\smallline}{\rule{.618\linewidth}{1pt}}
+\usepackage{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Seitenlayouts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defpagestyle{Leer}{                % Leere kopf und Fusszeile
+	(0pt, 0pt)
+	{}{}{}
+	(0pt, 0pt)
+}
+{	(0pt, 0pt)
+	{}{}{}
+	(0pt, 0pt)
+}
+
+\defpagestyle{Hauptteil}{           % Hauptteil
+	(0pt, 0pt)
+	{\leftmark\hfill\hfill}
+	{\hfill\hfill\leftmark}
+	{}
+	(16cm, 1pt)
+}
+{	(16cm, 1pt)
+	{\thepage\hfill\hfill}
+	{\hfill\hfill\thepage}
+	{}
+	(0pt, 0pt)
+}
+
+\defpagestyle{Anhang}{              % Anhang
+	(0pt, 0pt)
+	{\text{Anhang}\hfill\hfill}
+	{\hfill\hfill\text{Anhang}}
+	{}
+	(16cm, 1pt)
+}
+{	(16cm, 1pt)
+	{\thepage\hfill\hfill}
+	{\hfill\hfill\thepage}
+	{}
+	(0pt, 0pt)
+}
+
+\defpagestyle{Verzeichnisse}{   % Verzeichnisse
+	(0pt, 0pt)
+	{\leftmark\hfill\hfill}
+	{\hfill\hfill\leftmark}
+	{}
+	(16cm, 1pt)
+}
+{	(16cm, 1pt)
+	{\thepage\hfill\hfill}
+	{\hfill\hfill\thepage}
+	{}
+	(0pt, 0pt)
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Dokument beginnt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%    Titelseite
+\input{0_Titelseite.tex}
+\leavevmode\thispagestyle{empty}\newpage
+
+%%%%%%%%%%%%%%%%    Plagiatserklärung, Abstract, Inhalt
+\pagestyle{Verzeichnisse}
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+\input{1_Zus_Abstract.tex}
+\leavevmode\thispagestyle{Verzeichnisse}%\newpage
+
+\input{plagiat.tex}
+\leavevmode\thispagestyle{Verzeichnisse}%\newpage
+
+\tableofcontents
+\newpage
+
+
+%%%%%%%%%%%%%%%%    INHALT
+\pagestyle{Hauptteil}
+
+
+% \input{Vorlage/Beispiel.tex} \newpage
+\setcounter{page}{1}
+\newpage
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\input{Abkuerzungsverzeichnis}
+\leavevmode\thispagestyle{Hauptteil}\newpage
+
+
+% \input{Abkuerzungsverzeichnis} \newpage
+
+
+\pagenumbering{arabic}
+
+\input{1_Einleitung} \newpage
+\input{2_Theorie} \newpage
+\input{3_Versuchsdurchfuehrung} \newpage
+\input{4_Ergebnisse} \newpage
+\input{5_Diskussion} \newpage
+\input{6_Ausblick} \newpage
+
+%\input{referenzen} \newpage
+
+%%%%%%%%%%%%%%%%    Literaturverzeichnis
+\newpage
+\addcontentsline{toc}{section}{Literatur}
+\newpage
+\printbibliography%[heading=none]
+\leavevmode\thispagestyle{Hauptteil}\newpage
+\pagestyle{Anhang}
+
+
+%%%%%%%%%%%%%%%%    Anhang
+\begin{appendix}
+    \input{7_AnhangA}
+\end{appendix}
+
+\end{document}

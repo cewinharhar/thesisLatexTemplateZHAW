@@ -1,0 +1,101 @@
+% % ein Bild %%%%%%%%%%%%%%%%%
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=.9\textwidth]{Bilder/Layout/zhaw.png}
+%     \caption{}
+%     \label{fig:0}
+% \end{figure}
+
+
+% % mehrere Bilder %%%%%%%%%%%%%
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}[t]{0.49\linewidth}
+%     \centering
+%     \includegraphics[width=\textwidth]{Bilder/Layout/zhaw.png}
+%     \caption{}
+%     \label{fig:1}
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{0.49\linewidth}
+%     \centering
+%     \includegraphics[width=\textwidth]{Bilder/Layout/zhaw.png}
+%     \caption{}
+%     \label{fig:2}
+%     \end{minipage}
+% \end{figure}
+
+
+% % Tabelle %%%%%%%%%%%%%%%%%%%%%
+
+% \begin{table}[H]									
+% \small \centering									
+% \caption{}									
+% \vspace{.3cm}									
+%     \begin{tabular}{ccccc}									
+% \hline									
+% \textbf{}	&	\textbf{}	&	\textbf{}	&	\textbf{}	&	\textbf{}	\\ \hline
+% 	&		&		&		&		\\ \hline
+% 	&		&		&		&		\\ \hline
+%     \end{tabular}									
+%     \label{tab:}									
+% \end{table}									
+
+
+% % Tabelle über mehrere Seiten %%%
+
+% \begin{longtable}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|}
+% \caption{Übersicht aller verwendeten Chemikalien}\\
+% \hline
+% \textbf{Chemikalien} & \textbf{Hersteller} & \textbf{Sicherheit} & \textbf{H- und P-Sätze}   \\
+% \hline
+% \endfirsthead
+% \multicolumn{4}{c}%
+% {\tablename\ \thetable\ -- \textit{Fortsetzung von vorheriger Seite}} \\
+% \hline
+% \textbf{Chemikalien} & \textbf{Hersteller} & \textbf{Sicherheit} & \textbf{H- und P-Sätze}   \\
+% \hline
+% \endhead
+% \hline \multicolumn{4}{r}{\textit{Fortsetzung auf der nächsten Seite}} \\
+% \endfoot
+% \hline
+% \endlastfoot
+
+% 1-(Boc-amino)-cyclohexancarboxylsäure\newline
+% CAS-Nr.: 115951-16-1\newline
+% M: 243.30 g/mol\newline
+% 95 \%&Fluorochem&Reizend&H:\;302-312-315-319-332-335 \newline P:\;261-264-270-271302-313-337-313-363-403-233-501\\
+% \hline
+
+% 2-(7-Aza-1H-benzotriazole-1-yl9-1,1,3,3-tetramethyluronium (HATU)\newline
+% CAS-Nr.: 148893-10-1\newline
+% M: 30.24 g/mol\newline
+% 98 \%&Fluorochem&Reizend&H:\;228-215-219-335  P:\;210-261-305-351-338\\
+% \hline
+   
+% \end{longtable}
+
+
+% % Mathematische Formeln %%%%%%
+
+% \LaTeX{} kann selbstverständlich auch Gleichungen sauber nummeriert darstellen. Dafür muss das \$ Zeichen eingesetzt werden damit wechselt ihr in den Mathemodus und es ist Möglich im Text beispielsweise eine Definition zu machen $\lambda = \text{Wellenlänge}$. Alternativ können abgesetzte Formeln erzeugt werden. Das sieht dann so aus.
+% \begin{equation}
+%     y = a + bx
+% \end{equation}
+
+% Gleichungen lassen sich auch referenzieren...
+% \begin{equation}
+%     y = a + bx + cx^2
+%     \label{Eq:Eq1}
+% \end{equation}
+
+% Refererenzieren geht auch mittels ref Befehl auf Gl. \ref{Eq:Eq1}. Es lassen sich auch Gleichungssysteme abbilden.
+
+% \begin{eqnarray}
+%     y & = & a + bx \label{eq:eq2}\\
+%     y & = & a + bx + bx^2
+% \end{eqnarray}
+
+% davon ist grundsätzlich jede einzelne Gleichung zugänglich wie Gl. \ref{eq:eq2} zeigt.
